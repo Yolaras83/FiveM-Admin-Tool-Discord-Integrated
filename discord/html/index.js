@@ -33,7 +33,13 @@ async function sendMessage() {
 }
 
 async function createSupport() {
-    
+    await fetch('http://127.0.0.1:3000/create-support', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ discordId: data.idToUse })
+    });
 }
 
 window.addEventListener('keydown', async(e) => {
