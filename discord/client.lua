@@ -1,11 +1,18 @@
+ESX = exports['es_extended']:getSharedObject()
 
 local myName
 local targetName
 local id 
-
+local playerData
 
 
 RegisterCommand('player', function(nothing, args)
+    local xPlayer = ESX.GetPlayerData()
+    
+    if xPlayer.group == "user" then 
+        return 
+    end
+
     id = tonumber(args[1])
     local targetPlayer = GetPlayerFromServerId(id)
 
